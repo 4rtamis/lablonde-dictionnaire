@@ -1,0 +1,18 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const dictionary = await getCollection("words");
+  return dictionary.map((word) => ({
+    params: { slug: word.id },
+    props: { word },
+  }));
+}
+
+const { word } = Astro.props;
+---
+
+<Layout title={"Définition : " + word.data.mot}>
+  <h1>{word.data.mot}</h1>
+</Layout>
