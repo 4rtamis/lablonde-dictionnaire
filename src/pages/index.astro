@@ -6,37 +6,39 @@ import blondeWoman from "../assets/lablonde-light.png";
 ---
 
 <Layout title="Dictionnaire Lablonde">
-  <main
-    class="container mx-auto h-full flex justify-center items-center flex-col space-y-10"
-  >
-    <div>
-      <h1
-        class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl"
-      >
-        Le dictionnaire des <span
-          class="underline underline-offset-3 decoration-8 decoration-yellow-400"
-          >néochrestologismes</span
-        ><sup class="text-2xl -top-6">1</sup>
-      </h1>
-      <p class="text-lg font-normal text-gray-500 lg:text-xl">
-        <sup>1</sup><span class="italic text-base"
-          >nom masculin, du grec ancien νέος/néos, « nouveau »,
-          χρηστός/chrestos, « utile », et λόγος/lógos, « parole ».
-        </span><br /> Néologisme utile duquel le lecteur réalise avoir besoin
-        seulement après l'avoir découvert.
-      </p>
-    </div>
-    <div>
-      <Image
-        src={blondeWoman}
-        widths={[240, 340]}
-        width="340"
-        alt="Une femme blonde soufflant sur un pissenlit."
-        class="mx-auto"
-      />
-      <h2 class="text-center text-9xl uppercase font-title text-yellow-500">
-        Lablonde
-      </h2>
-    </div>
+  <main class="container mx-auto mt-10">
+    <section class="flex flex-row items-center space-x-20">
+      <div class="w-1/4">
+        <Image
+          src={blondeWoman}
+          widths={[240, 340]}
+          width="340"
+          alt="Une femme blonde soufflant sur un pissenlit."
+          class="mx-auto"
+        />
+      </div>
+      <div class="">
+        <h1
+          class="font-title text-yellow-500 text-9xl uppercase text-left -ml-2 mb-5"
+        >
+          Lablonde
+        </h1>
+        <h1
+          class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl"
+        >
+          Le dictionnaire des <span
+            class="underline underline-offset-3 decoration-8 decoration-yellow-400"
+            >néochrestologismes</span
+          ><sup class="text-2xl -top-6">1</sup>
+        </h1>
+        <p class="text-lg font-normal text-gray-500 lg:text-xl">
+          <sup>1</sup><span class="italic text-base"
+            >nom masculin, du grec ancien νέος/néos, « nouveau »,
+            χρηστός/chrestos, « utile », et λόγος/lógos, « parole ».
+          </span><br /> Néologisme utile duquel le lecteur réalise avoir besoin
+          seulement après l'avoir découvert.
+        </p>
+      </div>
+    </section>
   </main>
 </Layout>
