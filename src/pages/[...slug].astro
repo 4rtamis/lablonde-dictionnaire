@@ -14,5 +14,7 @@ const { word } = Astro.props;
 ---
 
 <Layout title={"Définition : " + word.data.mot}>
-  <h1>{word.data.mot}</h1>
+  <h1 class="text-center text-5xl font-bold mt-10 capitalize">
+    {word.data.mot}
+  </h1>
 </Layout>
