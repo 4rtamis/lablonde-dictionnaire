@@ -14,7 +14,21 @@ const { word } = Astro.props;
 ---
 
 <Layout title={"Définition : " + word.data.mot}>
-  <h1 class="text-center text-5xl font-bold mt-10 capitalize">
-    {word.data.mot}
-  </h1>
+  <main class="container mx-auto mt-10">
+    <section class="w-full max-w-2xl bg-slate-300 mx-auto px-5">
+      <h1 class="text-left text-5xl font-medium mt-10">
+        {word.data.mot}
+      </h1>
+      <p class="italic">{word.data.nature}</p>
+      <p set:html={word.data.origine} />
+      <hr />
+      <ol>
+        {word.data.definitions.map((def) => <li>{def}</li>)}
+      </ol>
+      <hr />
+      <ol>
+        {word.data.usages.map((def) => <li>{def}</li>)}
+      </ol>
+    </section>
+  </main>
 </Layout>

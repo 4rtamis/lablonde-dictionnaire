@@ -15,6 +15,7 @@ const wordCollection = defineCollection({
     nature_abbreviation: z.enum(["n.m.", "n.f.", "n.", "adj.", "v.", "adv."]),
     origine: z.string().optional(),
     definitions: z.string().array().nonempty(),
+    usages: z.string().array(),
   }),
 });
 
