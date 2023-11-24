@@ -14,21 +14,52 @@ const { word } = Astro.props;
 ---
 
 <Layout title={"Définition : " + word.data.mot}>
-  <main class="container mx-auto mt-10">
-    <section class="w-full max-w-2xl bg-slate-300 mx-auto px-5">
-      <h1 class="text-left text-5xl font-medium mt-10">
-        {word.data.mot}
-      </h1>
-      <p class="italic">{word.data.nature}</p>
-      <p set:html={word.data.origine} />
-      <hr />
-      <ol>
-        {word.data.definitions.map((def) => <li>{def}</li>)}
-      </ol>
-      <hr />
-      <ol>
-        {word.data.usages.map((def) => <li>{def}</li>)}
-      </ol>
+  <main class="container mx-auto pt-6 space-y-6">
+    <section
+      id="definitions"
+      class="w-full max-w-4xl bg-white mx-auto px-10 py-5 space-y-2"
+    >
+      <div class="w-full flex flex-col py-2 items-start space-y-1">
+        <div class="flex items-end space-x-3">
+          <h1 class="text-left text-5xl font-bold">
+            {word.data.mot}
+          </h1>
+          <p class="text-gray-600">/ {word.data.prononciation} /</p>
+        </div>
+        <p class="italic text-yellow-600 font-medium text-xl">
+          {word.data.nature}
+        </p>
+      </div>
+      <hr class="border-slate-300" />
+      <div class="w-full py-2">
+        <ol class="list-decimal pl-10 text-lg">
+          {
+            word.data.definitions.map(([def, usage]) => (
+              <li>
+                <div>{def}</div>
+                <div class="italic text-gray-600 text-base">{usage}</div>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </section>
+    <section
+      id="origin"
+      class="w-full max-w-4xl bg-white mx-auto px-10 py-10 space-y-3"
+    >
+      <h3 class="uppercase font-extrabold">Étymologie de {word.data.mot}</h3>
+      {
+        word.data.origonomen && (
+          <p>
+            <span class="uppercase text-yellow-600 font-normal text-xs">
+              Origonomen
+            </span>
+            <span set:html={word.data.origonomen} />
+          </p>
+        )
+      }
+      {word.data.origine && <p set:html={word.data.origine} />}
     </section>
   </main>
 </Layout>
