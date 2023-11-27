@@ -85,9 +85,20 @@ function Search({ searchList }) {
 
   return (
     <div onfocusout={handleOnFocusOut} onMouseLeave={handleOnMouseLeave}>
-      <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+      <input
+        type="text"
+        id="search-navbar"
+        value={query}
+        onInput={handleOnSearch}
+        onFocus={handleOnSearch}
+        onClick={handleOnSearch}
+        onKeyDown={handleListControls}
+        placeholder="Rechercher un mot..."
+        class="block w-full h-12 p-2 pe-16 ps-8 text-md text-gray-900 border focus:border-2 box-border border-gray-400 rounded-full bg-transparent focus:ring-yellow-500 focus:border-yellow-500 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-500 dark:focus:border-yellow-500 focus-visible:outline-none z-30 relative"
+      />
+      <div class="absolute inset-y-0 end-0 flex items-center justify-center pointer-events-none bg-yellow-500 dark:bg-yellow-500 rounded-full w-12 h-12 z-10">
         <svg
-          class="w-4 h-4 text-gray-500 dark:text-gray-400"
+          class="w-4 h-4 text-gray-800"
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -103,21 +114,10 @@ function Search({ searchList }) {
         </svg>
         <span class="sr-only">Icone de recherche</span>
       </div>
-      <input
-        type="text"
-        id="search-navbar"
-        value={query}
-        onInput={handleOnSearch}
-        onFocus={handleOnSearch}
-        onClick={handleOnSearch}
-        onKeyDown={handleListControls}
-        placeholder="Rechercher..."
-        class="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-yellow-500 focus:border-yellow-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-yellow-500 dark:focus:border-yellow-500 focus-visible:outline-none"
-      />
       {isDropdownVisible && words.length > 0 && (
         <div
           id="dropdown"
-          class="z-10 w-full absolute bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700"
+          class="z-10 w-4/5 ml-5 absolute bg-white divide-y divide-gray-100 rounded-b-lg shadow-md dark:bg-gray-700"
         >
           <ul
             class="py-2 text-sm text-gray-700 dark:text-gray-200"
@@ -129,8 +129,8 @@ function Search({ searchList }) {
                   href={`/${word.mot}`}
                   className={
                     dropdownSelectPosition == i
-                      ? "block px-4 py-2 dark:text-white bg-gray-300 dark:bg-gray-500"
-                      : "block px-4 py-2 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600"
+                      ? "text-base block px-4 py-2 dark:text-white bg-gray-300 dark:bg-gray-500"
+                      : "text-base block px-4 py-2 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600"
                   }
                 >
                   {word.mot}{" "}

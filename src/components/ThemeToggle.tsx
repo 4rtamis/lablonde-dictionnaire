@@ -1,4 +1,5 @@
 import { useState, useEffect } from "preact/hooks";
+import "../assets/classic-toggle.css";
 
 export default function ThemeToggle() {
   const [isMounted, setIsMounted] = useState(false);
@@ -29,10 +30,43 @@ export default function ThemeToggle() {
 
   return (
     <button
-      class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+      className={
+        theme === "dark"
+          ? "theme-toggle theme-toggle--toggled text-gray-900 hover:text-yellow-500 dark:text-white dark:hover:text-slate-300"
+          : "theme-toggle text-gray-900 hover:text-yellow-600 dark:text-white dark:hover:text-slate-300"
+      }
+      type="button"
+      title="Toggle theme"
+      aria-label="Toggle theme"
       onClick={toggleTheme}
     >
-      {theme === "dark" ? "🌙" : "🌞"}
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+        width="1.5rem"
+        height="1.5rem"
+        fill="currentColor"
+        stroke-linecap="round"
+        class="theme-toggle__classic"
+        viewBox="0 0 32 32"
+      >
+        <clipPath id="theme-toggle__classic__cutout">
+          <path d="M0-5h30a1 1 0 0 0 9 13v24H0Z" />
+        </clipPath>
+        <g clip-path="url(#theme-toggle__classic__cutout)">
+          <circle cx="16" cy="16" r="9.34" />
+          <g stroke="currentColor" stroke-width="1.5">
+            <path d="M16 5.5v-4" />
+            <path d="M16 30.5v-4" />
+            <path d="M1.5 16h4" />
+            <path d="M26.5 16h4" />
+            <path d="m23.4 8.6 2.8-2.8" />
+            <path d="m5.7 26.3 2.9-2.9" />
+            <path d="m5.8 5.8 2.8 2.8" />
+            <path d="m23.4 23.4 2.9 2.9" />
+          </g>
+        </g>
+      </svg>
       <span class="sr-only">Toggle Theme</span>
     </button>
   );

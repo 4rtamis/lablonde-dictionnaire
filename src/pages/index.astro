@@ -2,7 +2,8 @@
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Searchbar from "../components/Searchbar.astro";
-import blondeWoman from "../assets/lablonde-light.png";
+import blondeWoman from "../assets/lablonde-light.svg";
+import blondeWoman_dark from "../assets/lablonde-white.svg";
 ---
 
 <Layout title="Dictionnaire Lablonde">
@@ -16,7 +17,14 @@ import blondeWoman from "../assets/lablonde-light.png";
           widths={[240, 340]}
           width="340"
           alt="Une femme blonde soufflant sur un pissenlit."
-          class="mx-auto"
+          class="mx-auto block dark:hidden"
+        />
+        <Image
+          src={blondeWoman_dark}
+          widths={[240, 340]}
+          width="340"
+          alt="Une femme blonde soufflant sur un pissenlit."
+          class="mx-auto hidden dark:block"
         />
       </div>
       <div class="">
@@ -26,14 +34,16 @@ import blondeWoman from "../assets/lablonde-light.png";
           Lablonde
         </h1>
         <h1
-          class="mb-4 text-2xl md:text-4xl font-extrabold leading-none tracking-tight text-center text-gray-900 lg:text-6xl lg:text-left"
+          class="mb-4 text-2xl md:text-4xl font-extrabold leading-none tracking-tight text-center text-gray-900 lg:text-6xl lg:text-left dark:text-white"
         >
           Le dictionnaire des <span
             class="underline underline-offset-3 decoration-4 lg:decoration-8 decoration-yellow-400"
             >néochrestologismes</span
           ><sup class="text-xl -top-3 lg:text-2xl lg:-top-6">1</sup>
         </h1>
-        <p class="text-base md:text-lg font-normal text-gray-500 lg:text-xl">
+        <p
+          class="text-base md:text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-300"
+        >
           <sup>1</sup><span class="italic text-xs md:text-sm"
             >nom masculin, du grec ancien νέος/néos, « nouveau »,
             χρηστός/chrestos, « utile », et λόγος/lógos, « parole ».
@@ -41,6 +51,10 @@ import blondeWoman from "../assets/lablonde-light.png";
           seulement après l'avoir découvert.
         </p>
       </div>
+    </section>
+    <section
+      class="flex flex-col lg:flex-row items-center lg:space-x-10 xl:space-x-20 px-4 md:px-0"
+    >
     </section>
   </main>
 </Layout>
