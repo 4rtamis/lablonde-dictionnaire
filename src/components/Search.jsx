@@ -117,7 +117,7 @@ function Search({ searchList }) {
       {isDropdownVisible && words.length > 0 && (
         <div
           id="dropdown"
-          class="z-10 w-4/5 ml-5 absolute bg-white divide-y divide-gray-100 rounded-b-lg shadow-md dark:bg-gray-700"
+          class="z-10 w-11/12 left-1/2 transform -translate-x-1/2 md:left-auto md:transform-none md:w-4/5 md:ml-5 absolute bg-white/40 divide-y divide-gray-100 rounded-b-lg shadow-md backdrop-blur dark:bg-slate-700/40"
         >
           <ul
             class="py-2 text-sm text-gray-700 dark:text-gray-200"
@@ -129,8 +129,8 @@ function Search({ searchList }) {
                   href={`/${word.mot}`}
                   className={
                     dropdownSelectPosition == i
-                      ? "text-base block px-4 py-2 dark:text-white bg-gray-300 dark:bg-gray-500"
-                      : "text-base block px-4 py-2 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-600"
+                      ? "text-base block px-4 py-2 dark:text-white bg-gray-300 dark:bg-slate-500/40"
+                      : "text-base block px-4 py-2 dark:text-white hover:bg-gray-100 dark:hover:bg-slate-600/40"
                   }
                 >
                   {word.mot}{" "}

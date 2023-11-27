@@ -8,18 +8,18 @@ import ThemeToggle from "./ThemeToggle";
 ---
 
 <nav
-  class="bg-transparent dark:bg-transparent border-yellow-500 border-b py-5 space-y-5 dark:border-gray-500"
+  class="bg-transparent dark:bg-transparent border-yellow-500 border-b py-5 px-6 space-y-5 dark:border-gray-500 md:px-0"
 >
   <div
     id="top-logo"
-    class="mx-auto max-w-screen-xl flex justify-center items-center"
+    class="mx-auto max-w-screen-xl flex justify-between md:justify-center items-center"
   >
     <a href="/" class="flex items-center rtl:space-x-reverse">
       <Image
         src={blondeWoman}
         width="140"
         alt="Lablonde Logo."
-        class="h-16 w-16 block dark:hidden"
+        class="h-12 w-12 sm:h-16 sm:w-16 block dark:hidden"
       />
       <Image
         src={blondeWoman_dark}
@@ -28,38 +28,75 @@ import ThemeToggle from "./ThemeToggle";
         class="h-16 w-16 hidden dark:block"
       />
       <span
-        class="self-center text-5xl whitespace-nowrap text-yellow-500 uppercase font-title ml-3"
+        class="self-center text-3xl sm:text-5xl whitespace-nowrap text-yellow-500 uppercase font-title ml-2 sm:ml-3"
         >Lablonde</span
       >
     </a>
+    <div>
+      <button
+        data-collapse-toggle="navbar-search"
+        type="button"
+        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-900 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+        aria-controls="navbar-search"
+        aria-expanded="false"
+        id="nav-button"
+      >
+        <span class="sr-only">Ouvrir le menu</span>
+        <svg
+          class="w-5 h-5"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 17 14"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M1 1h15M1 7h15M1 13h15"></path>
+        </svg>
+      </button>
+    </div>
   </div>
   <div
     id="navigation"
-    class="flex flex-wrap items-center justify-between mx-auto p-4 max-w-screen-lg"
+    class="flex flex-wrap items-center justify-between mx-auto md:py-4 max-w-screen-lg"
   >
-    <div class="relative md:block w-1/2">
+    <div class="relative md:block w-full md:w-1/2 order-2 md:order-1">
       <Searchbar />
     </div>
     <ul
-      class="flex flex-col p-4 md:p-0 mt-4 font-medium text-lg border border-gray-300 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:items-center md:mt-0 md:border-0 dark:border-gray-700"
+      id="navbar-search"
+      class="order-1 md:order-2 flex-col mb-8 md:mb-0 p-4 md:p-0 mt-4 font-medium text-lg border border-gray-300 rounded-xl md:space-x-8 rtl:space-x-reverse md:flex-row md:items-center md:mt-0 md:border-0 dark:border-gray-500 hidden md:flex w-full md:w-auto"
     >
       <li>
         <a
           href="/"
-          class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-yellow-600 md:p-0 md:dark:hover:text-yellow-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+          class="block py-2 px-3 text-gray-900 rounded hover:bg-yellow-500/10 md:hover:bg-transparent md:hover:text-yellow-600 md:p-0 md:dark:hover:text-yellow-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
           aria-current="page">Accueil</a
         >
       </li>
       <li>
         <a
           href="#"
-          class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-yellow-600 md:p-0 md:dark:hover:text-yellow-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+          class="block py-2 px-3 text-gray-900 rounded hover:bg-yellow-500/10 md:hover:bg-transparent md:hover:text-yellow-600 md:p-0 md:dark:hover:text-yellow-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
           >À propos</a
         >
       </li>
-      <li class="flex items-center w-6 h-6">
-        <ThemeToggle client:idle />
+      <li
+        class="block py-2 px-3 text-gray-900 rounded hover:bg-yellow-500/10 md:hover:bg-transparent md:hover:text-yellow-600 md:p-0 md:dark:hover:text-yellow-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+      >
+        <div class="flex items-center w-6 h-6">
+          <ThemeToggle client:idle />
+        </div>
       </li>
     </ul>
   </div>
 </nav>
+<script is:inline>
+  document.getElementById("nav-button").onclick = () => {
+    let classList = document.getElementById("navbar-search").classList;
+    classList.toggle("hidden");
+  };
+</script>
