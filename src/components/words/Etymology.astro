@@ -1,0 +1,30 @@
+---
+const { word } = Astro.props;
+---
+
+<section
+  id="origin"
+  class="w-full max-w-4xl px-5 mx-auto space-y-3 border rounded-lg py-7 md:py-10 md:px-10 bg-white/70 dark:border-gray-500 dark:bg-gray-700/80"
+>
+  <h3 class="w-full font-extrabold uppercase break-words dark:text-white">
+    Étymologie de {word.data.mot}
+  </h3>
+  {
+    word.data.origonomen && (
+      <p class="text-base md:text-lg dark:text-white">
+        <span class="text-xs font-normal text-yellow-600 uppercase dark:text-yellow-500">
+          Origonomen
+        </span>
+        <span set:html={word.data.origonomen} />
+      </p>
+    )
+  }
+  {
+    word.data.origine && (
+      <p
+        class="text-base dark:text-white md:text-lg"
+        set:html={word.data.origine}
+      />
+    )
+  }
+</section>

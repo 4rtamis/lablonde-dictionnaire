@@ -1,8 +1,7 @@
 ---
-//import ThemeToggle from "./ThemeToggle";
 import { Image } from "astro:assets";
-import blondeWoman from "../assets/lablonde-light.svg";
-import blondeWoman_dark from "../assets/lablonde-white.svg";
+import blondeWoman from "../../assets/lablonde-light.svg";
+import blondeWoman_dark from "../../assets/lablonde-white.svg";
 import Searchbar from "./Searchbar.astro";
 import ThemeToggle from "./ThemeToggle";
 ---
@@ -25,7 +24,7 @@ import ThemeToggle from "./ThemeToggle";
         src={blondeWoman_dark}
         width="140"
         alt="Lablonde Logo."
-        class="hidden w-16 h-16 dark:block"
+        class="hidden w-12 h-12 sm:h-16 sm:w-16 dark:block"
       />
       <span
         class="self-center ml-2 text-3xl text-yellow-500 uppercase sm:text-5xl whitespace-nowrap font-title sm:ml-3"

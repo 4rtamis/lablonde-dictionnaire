@@ -1,4 +1,6 @@
 ---
+import Definition from "../components/words/Definition.astro";
+import Etymology from "../components/words/Etymology.astro";
 import Layout from "../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
@@ -15,72 +17,7 @@ const { word } = Astro.props;
 
 <Layout title={"Définition : " + word.data.mot}>
   <main class="container px-6 pt-6 mx-auto space-y-6 md:px-0">
-    <section
-      id="definitions"
-      class="w-full max-w-4xl px-5 py-3 mx-auto space-y-2 border rounded-lg md:py-5 md:px-10 bg-white/70 dark:border-gray-500 dark:bg-gray-700/80"
-    >
-      <div class="flex flex-col items-start w-full py-2 space-y-1">
-        <div
-          class="flex flex-col items-start w-full md:space-x-3 md:flex-row md:items-end"
-        >
-          <h1
-            class="w-full text-3xl font-medium text-left break-words md:w-auto sm:text-4xl md:text-5xl dark:text-white"
-          >
-            {word.data.mot}
-          </h1>
-          <p
-            class="w-full text-gray-600 break-words dark:text-gray-400 md:w-auto"
-          >
-            / {word.data.prononciation} /
-          </p>
-        </div>
-        <p
-          class="text-lg italic font-medium text-yellow-600 md:text-xl dark:text-yellow-500"
-        >
-          {word.data.nature}
-        </p>
-      </div>
-      <hr class="border-slate-300 dark:border-slate-500" />
-      <div class="w-full py-2">
-        <ol class="pl-5 text-base break-words list-decimal md:pl-10 sm:text-lg">
-          {
-            word.data.definitions.map(([def, usage]) => (
-              <li class="dark:text-white">
-                <div>{def}</div>
-                <div class="text-sm italic text-gray-600 sm:text-base dark:text-gray-400">
-                  {usage}
-                </div>
-              </li>
-            ))
-          }
-        </ol>
-      </div>
-    </section>
-    <section
-      id="origin"
-      class="w-full max-w-4xl px-5 mx-auto space-y-3 border rounded-lg py-7 md:py-10 md:px-10 bg-white/70 dark:border-gray-500 dark:bg-gray-700/80"
-    >
-      <h3 class="w-full font-extrabold uppercase break-words dark:text-white">
-        Étymologie de {word.data.mot}
-      </h3>
-      {
-        word.data.origonomen && (
-          <p class="text-base md:text-lg dark:text-white">
-            <span class="text-xs font-normal text-yellow-600 uppercase dark:text-yellow-500">
-              Origonomen
-            </span>
-            <span set:html={word.data.origonomen} />
-          </p>
-        )
-      }
-      {
-        word.data.origine && (
-          <p
-            class="text-base dark:text-white md:text-lg"
-            set:html={word.data.origine}
-          />
-        )
-      }
-    </section>
+    <Definition word={word} />
+    <Etymology word={word} />
   </main>
 </Layout>

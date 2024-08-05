@@ -1,17 +1,15 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
-import Searchbar from "../components/Searchbar.astro";
 import blondeWoman from "../assets/lablonde-light.svg";
 import blondeWoman_dark from "../assets/lablonde-white.svg";
+import PopoverDefinition from "../components/words/PopoverDefinition.astro";
 ---
 
 <Layout title="Dictionnaire Lablonde">
-  <main class="container mx-auto mt-10">
-    <section
-      class="flex flex-col items-center px-4 lg:flex-row lg:space-x-10 xl:space-x-20 md:px-0"
-    >
-      <div class="w-2/5 xl:w-1/4">
+  <main class="container max-w-4xl mx-auto mt-10">
+    <section class="flex flex-col items-center px-4">
+      <div class="w-1/3">
         <Image
           src={blondeWoman}
           widths={[240, 340]}
@@ -29,20 +27,22 @@ import blondeWoman_dark from "../assets/lablonde-white.svg";
       </div>
       <div class="">
         <h1
-          class="mb-5 text-6xl text-center text-yellow-500 uppercase font-title md:text-9xl lg:text-left lg:-ml-2"
+          class="mb-5 text-6xl text-center text-yellow-500 uppercase font-title md:text-9xl"
         >
           Lablonde
         </h1>
         <h1
-          class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-center text-gray-900 md:text-4xl lg:text-6xl lg:text-left dark:text-white"
+          class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-center text-gray-900 md:text-4xl dark:text-white"
         >
-          Le dictionnaire des <span
-            class="underline underline-offset-3 decoration-4 lg:decoration-8 decoration-yellow-400"
-            >néochrestologismes</span
-          ><sup class="text-sm md:text-xl -top-3 lg:text-2xl lg:-top-6">1</sup>
+          Le dictionnaire des <PopoverDefinition
+            wordId="alainde"
+            triggerContent="néochrestologismes"
+            classList="underline underline-offset-3 decoration-4 decoration-yellow-400"
+          /><sup class="text-sm md:text-xl -top-3">1</sup>
         </h1>
+
         <p
-          class="text-base font-normal text-gray-500 md:text-lg lg:text-xl dark:text-gray-300"
+          class="text-base font-normal text-left text-gray-500 md:text-lg dark:text-gray-300"
         >
           <sup class="text-xs">1</sup><span class="text-xs italic md:text-sm"
             >nom masculin, du grec ancien νέος/néos, « nouveau »,
@@ -51,10 +51,6 @@ import blondeWoman_dark from "../assets/lablonde-white.svg";
           seulement après l'avoir découvert.
         </p>
       </div>
-    </section>
-    <section
-      class="flex flex-col items-center px-4 lg:flex-row lg:space-x-10 xl:space-x-20 md:px-0"
-    >
     </section>
   </main>
 </Layout>

@@ -1,0 +1,59 @@
+---
+import { Image } from "astro:assets";
+import blondeWoman from "../../assets/lablonde-light.svg";
+import blondeWoman_dark from "../../assets/lablonde-white.svg";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="w-full mt-10 bg-transparent">
+  <div class="container p-4 mx-auto lg:max-w-4xl md:py-8">
+    <div
+      class="flex flex-col items-center space-y-2 sm:space-y-0 sm:flex-row sm:justify-between"
+    >
+      <a href="/" class="flex items-center rtl:space-x-reverse">
+        <Image
+          src={blondeWoman}
+          width="140"
+          alt="Lablonde Logo."
+          class="block w-8 h-8 sm:h-8 sm:w-8 dark:hidden"
+        />
+        <Image
+          src={blondeWoman_dark}
+          width="140"
+          alt="Lablonde Logo."
+          class="hidden w-8 h-8 sm:h-8 sm:w-8 dark:block"
+        />
+        <span
+          class="self-center ml-2 text-xl text-yellow-500 uppercase sm:text-2xl whitespace-nowrap font-title sm:ml-2"
+          >Lablonde</span
+        >
+      </a>
+      <ul
+        class="flex flex-wrap items-center justify-center mb-0 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400"
+      >
+        <li>
+          <a href="/" class="hover:underline me-4 md:me-6">À propos</a>
+        </li>
+        <li>
+          <a
+            href="https://github.com/4rtamis/lablonde-dictionnaire"
+            class="hover:underline me-4 md:me-6">Code source</a
+          >
+        </li>
+        <li>
+          <a href="/license" class="hover:underline me-4 md:me-6">License</a>
+        </li>
+        <li>
+          <a href="/contact" class="hover:underline">Contact</a>
+        </li>
+      </ul>
+    </div>
+    <hr class="my-4 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+    <span class="block text-sm text-center text-gray-500 dark:text-gray-400"
+      >©{year}&nbsp;
+      <a href="https://lablonde.org/" class="hover:underline">Lablonde</a> -
+      <a href="https://4rtamis.me" class="hover:underline">4rtamis</a></span
+    >
+  </div>
+</footer>

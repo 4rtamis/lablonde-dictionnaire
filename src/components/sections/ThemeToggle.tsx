@@ -1,5 +1,5 @@
 import { useState, useEffect } from "preact/hooks";
-import "../assets/classic-toggle.css";
+import "../../assets/classic-toggle.css";
 
 export default function ThemeToggle() {
   const [isMounted, setIsMounted] = useState(false);
